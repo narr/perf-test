@@ -1,7 +1,9 @@
 # main.py
 from fastapi import FastAPI
 import uvicorn
-import time
+
+# import time
+import asyncio
 
 app = FastAPI()
 
@@ -21,7 +23,8 @@ async def delay_response(seconds: int):
     """
     지정된 초만큼 응답을 지연시키는 엔드포인트
     """
-    time.sleep(seconds)
+    # time.sleep(seconds)
+    await asyncio.sleep(seconds)
     return {"message": f"Delayed for {seconds} seconds"}
 
 
